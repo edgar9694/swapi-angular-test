@@ -1,0 +1,42 @@
+<section
+  class="carouselPeople container mt-5 d-flex align-items-center justify-content-center"
+>
+  <div
+    class="carouselPeople__preview d-flex align-items-center"
+    *ngIf="peopleLoaded$ | async"
+  >
+    <div class="carouselPeople__preview__title">
+      <h2>
+        {{ titlePerson }}
+      </h2>
+    </div>
+  </div>
+  <ul class="carouselPeople__elements" *ngIf="peopleLoaded$ | async">
+    <li
+      class="carouselPeople__item my-3 d-flex align-items-center justify-content-center"
+      *ngFor="let person of peopleList$ | async"
+      (click)="selectPeople(person)"
+      (mouseenter)="previewPeople(person)"
+    >
+      <div class="carouselPeople__img">
+        <img src="" alt="" />
+      </div>
+      <span>
+        {{ person.name }}
+      </span>
+    </li>
+    <li
+      class="carouselPeople__item my-3 d-flex align-items-center justify-content-center"
+      *ngIf="(peopleLoaded$ | async) && (peopleError$ | async)"
+    >
+      <span> Ocurrio un error y no se cargaron todos los datos </span>
+    </li>
+  </ul>
+  <div
+    *ngIf="!(peopleLoaded$ | async) && (peopleError$ | async)"
+    class="errorPeople my-3 d-flex align-items-center justify-content-center"
+    (click)="reloadPage()"
+  >
+    <span> Ocurrio un error por favor recargue la pagina </span>
+  </div>
+</section>

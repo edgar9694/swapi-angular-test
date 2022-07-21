@@ -1,0 +1,45 @@
+<section
+  class="carouselStarships container mt-5 d-flex align-items-center justify-content-center"
+>
+  <div
+    class="carouselStarships__preview align-items-center d-none d-md-flex col-12 col-md-6"
+    *ngIf="starshipLoaded$ | async"
+  >
+    <div class="carouselStarships__preview__title">
+      <h2>
+        {{ titleStarship }}
+      </h2>
+    </div>
+  </div>
+  <ul
+    class="carouselStarships__elements col-12 col-md-6 px-0 px-md-3"
+    *ngIf="starshipLoaded$ | async"
+  >
+    <li
+      class="carouselStarships__item my-3 d-flex align-items-center justify-content-center"
+      *ngFor="let starship of starshipsList$ | async"
+      (click)="selectStarship(starship)"
+      (mouseenter)="previewStarship(starship)"
+    >
+      <div class="carouselStarships__img">
+        <img src="" alt="" />
+      </div>
+      <span>
+        {{ starship.name }}
+      </span>
+    </li>
+    <li
+      class="carouselStarships__item my-3 d-flex align-items-center justify-content-center"
+      *ngIf="(starshipLoaded$ | async) && (starshipError$ | async)"
+    >
+      <span> Ocurrio un error y no se cargaron todos los datos </span>
+    </li>
+  </ul>
+  <div
+    *ngIf="!(starshipLoaded$ | async) && (starshipError$ | async)"
+    class="errorStarship my-3 d-flex align-items-center justify-content-center"
+    (click)="reloadPage()"
+  >
+    <span> Ocurrio un error por favor recargue la pagina </span>
+  </div>
+</section>

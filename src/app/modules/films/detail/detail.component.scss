@@ -1,0 +1,97 @@
+.detailFilm {
+  width: 100%;
+  height: 100vh;
+
+  .onBackLink {
+    position: absolute;
+    top: 1.5rem;
+    left: 2.5rem;
+    cursor: pointer;
+    color: #ffe81f;
+  }
+
+  ul {
+    list-style-type: none;
+    li {
+      padding: 0.25rem 0px;
+    }
+  }
+
+  .detailFilm__card {
+    border: 1px #ffe81f solid;
+    color: #ffe81f;
+    position: relative;
+    background: #060c21;
+    transition: 0.5s;
+
+    a {
+      color: #ffe81f;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: #fff;
+      z-index: -1;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: #fff;
+      z-index: -2;
+      filter: blur(40px);
+    }
+
+    &::after,
+    &::before {
+      background: linear-gradient(235deg, #ffe81f, #010615, #ffe81f);
+    }
+
+    .filmList {
+      max-height: 200px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #ffe81f;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #010615;
+        box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      &::-webkit-scrollbar-thumb:active {
+        background-color: #010615;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #060c21;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-track:hover,
+      &::-webkit-scrollbar-track:active {
+        background: #010615;
+      }
+    }
+  }
+
+  .detailFilm__img {
+    float: left;
+    width: 200px;
+    height: 200px;
+  }
+}

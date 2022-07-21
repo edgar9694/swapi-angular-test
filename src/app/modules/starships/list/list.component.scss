@@ -1,0 +1,167 @@
+.carouselStarships {
+  width: 100%;
+  height: 600px;
+
+  .box:before,
+  .box:after {
+    background: linear-gradient(235deg, #ffe81f, #010615, #ffe81f);
+  }
+  .carouselStarships__preview {
+    height: 500px;
+    position: relative;
+    background: #060c21;
+    transition: 0.5s;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: #fff;
+      z-index: -1;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: #fff;
+      z-index: -2;
+      filter: blur(40px);
+    }
+
+    &::after,
+    &::before {
+      background: linear-gradient(235deg, #ffe81f, #010615, #ffe81f);
+    }
+
+    .carouselStarships__preview__content {
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      height: 90px;
+      background: rgba(0, 0, 0, 0.04);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .carouselStarships__preview__title {
+      position: absolute;
+      width: 100%;
+      height: 50px;
+      z-index: 3;
+      text-align: center;
+      color: #ffe81f;
+    }
+  }
+
+  .carouselStarships__elements {
+    overflow-y: scroll;
+    height: 500px;
+    .carouselStarships__item {
+      position: relative;
+      list-style-type: none;
+      border: 1px #ffe81f solid;
+      color: #ffe81f;
+      border-radius: 0.5em;
+      margin: 0 0.5em;
+      padding: 2em 1em;
+      transition: all 0.5s ease-in;
+      cursor: pointer;
+      img {
+        min-width: 100%;
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        border: 1px #ffe81f solid;
+        width: 99%;
+        height: 90%;
+        border-radius: 0.5em;
+      }
+
+      &:hover {
+        // animation: blinkbutton 0.3s linear 1;
+        background-color: #ffe81f;
+        color: #fff;
+        &::before {
+          border: #fff 1px solid;
+          filter: blur(40px);
+        }
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ffe81f;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #010615;
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background-color: #010615;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #060c21;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track:hover,
+    &::-webkit-scrollbar-track:active {
+      background: #010615;
+    }
+  }
+
+  .carouselStarships__controls {
+  }
+}
+
+.errorStarship {
+  position: relative;
+  list-style-type: none;
+  border: 1px #ffe81f solid;
+  color: #ffe81f;
+  border-radius: 0.5em;
+  margin: 0 0.5em;
+  padding: 2em 1em;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  img {
+    min-width: 100%;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    border: 1px #ffe81f solid;
+    width: 99%;
+    height: 90%;
+    border-radius: 0.5em;
+  }
+
+  &:hover {
+    background-color: #ffe81f;
+    color: #060c21;
+    &::before {
+      border: #060c21 1px solid;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<section
+  class="detailStarship container mx-auto my-4 p-4"
+  *ngIf="starshipDetail$ | async as starshipDetail"
+>
+  <a class="onBackLink d-block d-md-none" (click)="onBack()"> < Regresar </a>
+  <div
+    class="detailStarship__card d-flex align-items-center col-12 col-lg-10 p-4 mt-5 mx-auto rounded position-relative"
+  >
+    <a class="onBackLink d-none d-md-block" (click)="onBack()"> < Regresar </a>
+
+    <!-- <img class="detailStarship__img" src="" alt="" /> -->
+
+    <div class="detailStarship__info ms-3">
+      <h2 class="text-center border-bottom">
+        {{ starshipDetail.name }}
+      </h2>
+      <div class="row">
+        <ul class="col-12 col-lg-6">
+          <li>Modelo: {{ starshipDetail.model }}</li>
+          <li>Fabricante: {{ starshipDetail.manufacturer }}</li>
+          <li>Costo: {{ starshipDetail.cost_in_credits }} creditos</li>
+          <li>Longitud: {{ starshipDetail.length }} m</li>
+          <li>
+            Velocidad atmosférica máxima:
+            {{ starshipDetail.max_atmosphering_speed }}
+          </li>
+          <li>Tripulación: {{ starshipDetail.crew }}</li>
+        </ul>
+        <ul class="col-12 col-lg-6">
+          <li>N° de pasajeros: {{ starshipDetail.passengers }}</li>
+          <li>Capacidad de carga: {{ starshipDetail.cargo_capacity }} Kg</li>
+          <li>Consumibles: {{ starshipDetail.consumables }}</li>
+          <li>Ratio de hyperdrive: {{ starshipDetail.hyperdrive_rating }}</li>
+          <li>MGLT: {{ starshipDetail.MGLT }}</li>
+          <li>Clase: {{ starshipDetail.starship_class }}</li>
+        </ul>
+        <div class="col-12 col-lg-6">
+          <p class="mb-0">Pilotos:</p>
+          <ul>
+            <li
+              *ngFor="let pilot of starshipDetail.pilots"
+              class="d-flex justify-content-around"
+            >
+              <a [routerLink]="['/people/detail/', filterId(pilot, 'people')]">
+                Info
+              </a>
+              <a [href]="pilot" target="_blank"> SWAPI </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6">
+          <p class="mb-0">Peliculas:</p>
+          <ul>
+            <li
+              *ngFor="let film of starshipDetail.films"
+              class="d-flex justify-content-around"
+            >
+              <a [routerLink]="['/films/detail/', filterId(film, 'films')]">
+                Info
+              </a>
+              <a [href]="film" target="_blank"> SWAPI </a>
+            </li>
+          </ul>
+        </div>
+        <div
+          class="col-12 d-flex flex-column flex-md-row justify-content-around border-top"
+        >
+          <span>
+            Creada el: {{ starshipDetail.created | date: "dd-MM-YYY" }}
+          </span>
+          <span>
+            Editada el: {{ starshipDetail.edited | date: "dd-MM-YYY" }}
+          </span>
+          <span>
+            <a [href]="starshipDetail.url" target="_blank">enlace</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

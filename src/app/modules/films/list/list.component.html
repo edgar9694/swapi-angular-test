@@ -1,0 +1,33 @@
+<section class="carouselFilms container mt-5">
+  <ul
+    class="carouselFilms__elements row justify-content-around"
+    *ngIf="filmsLoaded$ | async"
+  >
+    <li
+      class="carouselFilms__item my-3 d-flex align-items-center justify-content-center col-12 col-md-4"
+      *ngFor="let film of filmsList$ | async"
+      (click)="selectFilm(film)"
+    >
+      <div class="carouselFilms__img">
+        <img src="" alt="" />
+      </div>
+      <span>
+        {{ film.title }}
+      </span>
+    </li>
+    <li
+      class="carouselFilms__item my-3 d-flex align-items-center justify-content-center col-12 col-md-4"
+      *ngIf="(filmsLoaded$ | async) && (filmError$ | async)"
+    >
+      <span> Ocurrio un error y no se cargaron todos los datos </span>
+    </li>
+  </ul>
+
+  <div
+    *ngIf="!(filmsLoaded$ | async) && (filmError$ | async)"
+    class="errorFilm my-3 d-flex align-items-center justify-content-center"
+    (click)="reloadPage()"
+  >
+    <span> Ocurrio un error por favor recargue la pagina </span>
+  </div>
+</section>

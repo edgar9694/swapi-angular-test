@@ -1,0 +1,116 @@
+<section
+  class="detailFilm container mx-auto my-4 p-4"
+  *ngIf="filmDetail$ | async as filmDetail"
+>
+  <div
+    class="detailFilm__card d-flex align-items-center col-12 col-lg-10 p-4 mt-5 mx-auto rounded position-relative"
+  >
+    <a class="onBackLink" (click)="onBack()"> < Regresar </a>
+
+    <!-- <img class="detailFilm__img" src="" alt="" /> -->
+
+    <div class="detailFilm__info ms-3">
+      <h2 class="text-center border-bottom">
+        {{ filmDetail.title }}
+      </h2>
+      <div class="row">
+        <ul class="col-12 col-lg-6">
+          <li>Director: {{ filmDetail.director }}</li>
+          <li>Productor: {{ filmDetail.producer }}</li>
+          <li>
+            texto de apertura:
+            <a
+              [routerLink]="['/films/opening/', filmDetail.episode_id]"
+              class="text-decoration-underline"
+              >mostrar texto</a
+            >
+          </li>
+        </ul>
+        <div class="col-12 col-lg-6">
+          <div>
+            <p class="mb-0">Naves:</p>
+            <ul class="filmList">
+              <li
+                *ngFor="let starship of filmDetail.starships"
+                class="d-flex justify-content-around"
+              >
+                <a
+                  [routerLink]="[
+                    '/starships/detail/',
+                    filterId(starship, 'starships')
+                  ]"
+                >
+                  Info
+                </a>
+                <a [href]="starship" target="_blank"> SWAPI </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 row">
+          <div class="col-12 col-lg-4">
+            <p class="mb-0">Personajes:</p>
+            <ul class="filmList">
+              <li
+                *ngFor="let person of filmDetail.characters"
+                class="d-flex justify-content-around"
+              >
+                <a
+                  [routerLink]="['/people/detail/', filterId(person, 'people')]"
+                >
+                  Info
+                </a>
+                <a [href]="person" target="_blank"> SWAPI </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-4">
+            <p class="mb-0">Planetas:</p>
+            <ul class="filmList">
+              <li
+                *ngFor="let planet of filmDetail.planets"
+                class="d-flex justify-content-center"
+              >
+                <!-- <a
+                  [routerLink]="['/people/detail/', filterId(planet, 'people')]"
+                >
+                  Info
+                </a> -->
+                <a [href]="planet" target="_blank"> SWAPI </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-4">
+            <p class="mb-0">Vehiculos:</p>
+            <ul class="filmList">
+              <li
+                *ngFor="let vehicle of filmDetail.vehicles"
+                class="d-flex justify-content-center"
+              >
+                <!-- <a
+                  [routerLink]="[
+                    '/people/detail/',
+                    filterId(vehicle, 'people')
+                  ]"
+                >
+                  Info
+                </a> -->
+                <a [href]="vehicle" target="_blank"> SWAPI </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="col-12 d-flex flex-column flex-md-row justify-content-around border-top"
+        >
+          <span> Creada el: {{ filmDetail.created | date: "dd-MM-YYY" }} </span>
+          <span> Editada el: {{ filmDetail.edited | date: "dd-MM-YYY" }} </span>
+          <span>
+            <a [href]="filmDetail.url" target="_blank">enlace</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

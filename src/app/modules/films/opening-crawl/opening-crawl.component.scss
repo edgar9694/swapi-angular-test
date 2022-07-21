@@ -1,0 +1,35 @@
+.containerBoxOpening {
+  overflow: hidden;
+  .onBackLink {
+    position: absolute;
+    top: 1.5rem;
+    left: 2.5rem;
+    cursor: pointer;
+    color: #ffe81f;
+  }
+  .openingCrawlContainer {
+    transform: perspective(300px) rotateX(20deg);
+
+    .target {
+      position: absolute;
+      top: -3500px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      font-size: 30px;
+      text-align: center;
+      color: yellow;
+      div {
+        padding-top: 4200px;
+        animation: autoscroll 10000s linear;
+      }
+    }
+  }
+}
+
+@keyframes autoscroll {
+  to {
+    margin-top: -500000px;
+  }
+}

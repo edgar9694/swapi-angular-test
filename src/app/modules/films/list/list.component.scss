@@ -1,0 +1,79 @@
+.carouselFilms {
+  width: 100%;
+  height: 600px;
+
+  .box:before,
+  .box:after {
+    background: linear-gradient(235deg, #ffe81f, #010615, #ffe81f);
+  }
+  .carouselFilms__elements {
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+    .carouselFilms__item {
+      position: relative;
+      list-style-type: none;
+      border: 1px #ffe81f solid;
+      color: #ffe81f;
+      border-radius: 0.5em;
+      margin: 0 0.5em;
+      padding: 2em 1em;
+      transition: all 0.5s ease-in;
+      cursor: pointer;
+      font-size: 1.5em;
+
+      &:hover {
+        // animation: blinkbutton 0.3s linear 1;
+        background-color: #ffe81f;
+        color: #060c21;
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ffe81f;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #010615;
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background-color: #010615;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #060c21;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track:hover,
+    &::-webkit-scrollbar-track:active {
+      background: #010615;
+    }
+  }
+}
+
+.errorFilm {
+  position: relative;
+  list-style-type: none;
+  border: 1px #ffe81f solid;
+  color: #ffe81f;
+  border-radius: 0.5em;
+  margin: 0 0.5em;
+  padding: 2em 1em;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+  font-size: 1.5em;
+  &:hover {
+    background-color: #ffe81f;
+    color: #060c21;
+    &::before {
+      border: #060c21 1px solid;
+    }
+  }
+}

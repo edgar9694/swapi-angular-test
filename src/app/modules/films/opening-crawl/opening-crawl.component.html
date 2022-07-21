@@ -1,0 +1,8 @@
+<section class="container containerBoxOpening h-100 position-relative">
+  <a class="onBackLink" (click)="onBack()"> < Regresar </a>
+  <div class="openingCrawlContainer h-100 position-relative">
+    <div class="target" *ngIf="filmDetail$ | async as filmDetail">
+      <div [innerText]="filmDetail.opening_crawl"></div>
+    </div>
+  </div>
+</section>
