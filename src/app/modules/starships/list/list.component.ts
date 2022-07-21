@@ -36,12 +36,25 @@ export class ListComponent {
     this.swStateService.setElement(starship, 'starship');
     this.router.navigate(['/starships/detail', starship.id]);
   }
-
+  /**
+   * asigna el nombre del elemento para la previsualización
+   * @param starship variable que contiene el elemento
+   */
   previewStarship(starship: Starship) {
     this.titleStarship = starship.name;
   }
 
+  /**
+   * recarga la página
+   */
   reloadPage() {
     window.location.reload();
+  }
+
+  /**
+   * regresa a la pagina de selección de vista
+   */
+  onBack() {
+    this.router.navigate(['/index']);
   }
 }

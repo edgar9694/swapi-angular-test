@@ -1,4 +1,5 @@
 <section class="carouselFilms container mt-5">
+  <a class="onBackLink" (click)="onBack()"> < Regresar </a>
   <ul
     class="carouselFilms__elements row justify-content-around"
     *ngIf="filmsLoaded$ | async"

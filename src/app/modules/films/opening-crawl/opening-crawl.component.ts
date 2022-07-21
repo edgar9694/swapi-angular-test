@@ -21,15 +21,26 @@ export class OpeningCrawlComponent implements OnInit {
     private toastr: ToastrService,
     private router: Router
   ) {}
+  /**
+   * Variable que contiene al elemento para su visualización
+   */
   filmDetail$: Observable<Film> = this.swStateService.filmDetail$;
 
+  /**
+   * se llama manualmente al elemento para tener la data ya cargada
+   */
   ngOnInit(): void {
     let ID = this.route.snapshot.params['ID'];
-    if (ID) {
+    let film = {};
+    this.filmDetail$.subscribe((result) => (film = result));
+    if (ID && !film) {
       this.loadFilm(ID);
     }
   }
-
+  /**
+   * llamada al servicio
+   * @param id variable para llamar al elemento
+   */
   loadFilm(id: string) {
     this.swService.loadSpecificData('films', +id).subscribe({
       next: (result: Film) => {
@@ -48,7 +59,9 @@ export class OpeningCrawlComponent implements OnInit {
       },
     });
   }
-
+  /**
+   * regresa a la pantalla anterior
+   */
   onBack() {
     this.location.back();
   }

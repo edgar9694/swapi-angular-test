@@ -1,6 +1,7 @@
 <section
   class="carouselPeople container mt-5 d-flex align-items-center justify-content-center"
 >
+  <a class="onBackLink" (click)="onBack()"> < Regresar </a>
   <div
     class="carouselPeople__preview d-flex align-items-center"
     *ngIf="peopleLoaded$ | async"

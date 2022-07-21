@@ -56,4 +56,11 @@ export class ListComponent {
   reloadPage() {
     window.location.reload();
   }
+
+  /**
+   * regresa a la pagina de selección de vista
+   */
+  onBack() {
+    this.router.navigate(['/index']);
+  }
 }

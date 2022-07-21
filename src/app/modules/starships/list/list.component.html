@@ -1,6 +1,7 @@
 <section
   class="carouselStarships container mt-5 d-flex align-items-center justify-content-center"
 >
+  <a class="onBackLink" (click)="onBack()"> < Regresar </a>
   <div
     class="carouselStarships__preview align-items-center d-none d-md-flex col-12 col-md-6"
     *ngIf="starshipLoaded$ | async"
