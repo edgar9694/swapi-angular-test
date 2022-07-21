@@ -1,6 +1,6 @@
 # SwApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+Creando un proyecto de angular para llamar la api de star wars para crear una aplicación de información de los elementos de star wars, en esta aplicación se tomo como medida hacer una unica llamada a la api de forma manual y que las demas llamadas del servicio se hagan de manera automatica al recargar la pagina y utilizando un servicio de estado para guardar toda la información traida de la api
 
 ## Development server
 
